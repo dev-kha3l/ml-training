@@ -4,3 +4,12 @@
  * @param {number} celsius The temperature in Celsius.
  * @return {number} The temperature in Fahrenheit.
  */
+
+function convertCelsiusToFahrenheit(celsius) {
+  return (celsius * 9) / 5 + 32;
+}
+
+const celsiusTemperature = 60;
+const fahrenheitTemperature = convertCelsiusToFahrenheit(celsiusTemperature);
+
+console.log(`${celsiusTemperature}°C = ${fahrenheitTemperature}°F`);

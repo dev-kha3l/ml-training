@@ -3,3 +3,12 @@
  * @param {number[]} arr The array to check.
  * @throws {Error} If the array is empty.
  */
+
+function checkArrayNotEmpty(arr) {
+  if (arr.length === 0) {
+    throw new Error("The array is empty.");
+  }
+}
+const arrayNum = [];
+
+console.log(checkArrayNotEmpty(arrayNum));

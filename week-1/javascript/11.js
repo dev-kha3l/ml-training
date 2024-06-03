@@ -12,3 +12,10 @@ const entities = {
   '"': "&quot;",
   "'": "&apos;",
 };
+function convertHtmlEntities(string) {
+  return string.replace(/[&<>"']/g, (match) => entities[match]);
+}
+
+const input = "<, >, &, \", and '.";
+const output = convertHtmlEntities(input);
+console.log(output);

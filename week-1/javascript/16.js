@@ -8,10 +8,10 @@
  *
  * Grade computed as follows:
  * < 60 : F
- * 60-70 : D
- * 70-80 : C
- * 80-90 : B
- * > 90 : A
+ * 60-69 : D
+ * 70-79 : C
+ * 80-89 : B
+ * >= 90 : A
  * @return {number} The average marks of the students.
  */
 
