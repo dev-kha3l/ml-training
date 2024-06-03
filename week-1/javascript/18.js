@@ -16,3 +16,36 @@
  * @param {string[]} items
  * @returns {string}
  */
+const shoppingCart = (items) => {
+  const cart = [];
+  let totalPrice = 0;
+  let totalItems = 0;
+
+  const addItem = (item) => {
+    cart.push(item);
+    totalPrice += item.price;
+    totalItems++;
+  };
+
+  const removeItem = (item) => {
+    const index = cart.indexOf(item);
+    cart.splice(index, 1);
+    totalPrice -= item.price;
+    totalItems--;
+  };
+
+  const displayTotalPrice = () => {
+    return `Total price: ${totalPrice}`;
+  };
+
+  const displayTotalItems = () => {
+    return `Total items: ${totalItems}`;
+  };
+
+  return {
+    addItem,
+    removeItem,
+    displayTotalPrice,
+    displayTotalItems,
+  };
+};

@@ -22,3 +22,19 @@ const students = [
   { name: "Tom", mark: 65 },
   { name: "Nancy", mark: 75 },
 ];
+const average = students.reduce((acc, student) => {
+  return acc + student.mark;
+}, 0);
+
+const grade =
+  average >= 90
+    ? "A"
+    : average >= 80
+    ? "B"
+    : average >= 70
+    ? "C"
+    : average >= 60
+    ? "D"
+    : "F";
+
+console.log(grade); // A

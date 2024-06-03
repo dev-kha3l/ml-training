@@ -7,3 +7,11 @@
  * @param {string} str
  * @returns {string}
  */
+const swapCase = (str) => {
+  return str
+    .split("")
+    .map((char) => char.toUpperCase())
+    .join("");
+};
+
+console.log(swapCase("Hello World"));
