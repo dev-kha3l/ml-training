@@ -7,9 +7,9 @@
  * Expected output: "The lowest number is 1 and the highest number is 9."
  */
 
-function findHighestAndLowest(array) {
-  const lowest = Math.min(...array);
-  const highest = Math.max(...array);
+function findHighestAndLowest(arr) {
+  const lowest = Math.min(...arr);
+  const highest = Math.max(...arr);
   return `The lowest number is ${lowest} and the highest number is ${highest}.`;
 }
 
