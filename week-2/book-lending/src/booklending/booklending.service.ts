@@ -23,6 +23,27 @@ export class BooklendingService {
     });
     return user;
   }
+
+  //get a user
+  async getUser(id: number): Promise<User> {
+    return this.prisma.user.findUnique({
+      where: { id },
+    });
+  }
+
+  //get all users
+  async getUsers(): Promise<User[]> {
+    return this.prisma.user.findMany();
+  }
+
+  //remove a user
+  async removeUser(id: number): Promise<User> {
+    const user = await this.prisma.user.delete({
+      where: { id },
+    });
+    return user;
+  }
+
   //Create a book
   async createBook(createBookDto: CreateBooklendingDto): Promise<Book> {
     const book = await this.prisma.book.create({
@@ -45,6 +66,19 @@ export class BooklendingService {
     return book;
   }
 
+  //get a book
+  async getBook(id: number): Promise<Book> {
+    return this.prisma.book.findUnique({
+      where: { id },
+    });
+  }
+
+  //get all books
+  async getBooks(): Promise<Book[]> {
+    return this.prisma.book.findMany();
+  }
+
+  //remove a book
   async deleteBook(id: number): Promise<Book> {
     const book = await this.prisma.book.delete({
       where: {
@@ -53,6 +87,7 @@ export class BooklendingService {
     });
     return book;
   }
+
   //borrow a book
   async borrowBook(borrowBookDto: BorrowBookLendingDto): Promise<BookLending> {
     const { userId, bookId, dueDate } = borrowBookDto;

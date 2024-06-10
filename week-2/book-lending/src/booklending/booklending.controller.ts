@@ -24,9 +24,34 @@ export class BooklendingController {
     return this.bookLendingService.createUser(createUserDto);
   }
 
+  @Get('user/:id')
+  getUser(@Param('id') id: number) {
+    return this.bookLendingService.getUser(+id);
+  }
+
+  @Get('users')
+  getUsers() {
+    return this.bookLendingService.getUsers();
+  }
+
+  @Delete('user/:id')
+  removeUser(@Param('id') id: number) {
+    return this.bookLendingService.removeUser(+id);
+  }
+
   @Post('book')
   async createBook(@Body() createBookDto: CreateBooklendingDto) {
     return this.bookLendingService.createBook(createBookDto);
+  }
+
+  @Get('book/:id')
+  getBook(@Param('id') id: number) {
+    return this.bookLendingService.getBook(+id);
+  }
+
+  @Get('books')
+  getBooks() {
+    return this.bookLendingService.getBooks();
   }
 
   @Patch('book/:id')
@@ -36,6 +61,7 @@ export class BooklendingController {
   ) {
     return await this.bookLendingService.updateBook(+id, updateBookDto);
   }
+
   @Delete('book/:id')
   deleteBook(@Param('id') id: number) {
     return this.bookLendingService.deleteBook(+id);
