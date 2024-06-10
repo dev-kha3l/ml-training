@@ -12,3 +12,17 @@ const entities = {
   '"': "&quot;",
   "'": "&apos;",
 };
+
+function convertEntities(str: string): string {
+  let newStr = "";
+  for (let i = 0; i < str.length; i++) {
+    if (entities[str[i]]) {
+      newStr += entities[str[i]];
+    } else {
+      newStr += str[i];
+    }
+  }
+  return newStr;
+}
+
+console.log(convertEntities("&lt;script&gt;alert('XSS');&lt;/script&gt;"));

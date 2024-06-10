@@ -16,3 +16,30 @@
  * @param {string[]} items
  * @returns {string}
  */
+
+function shoppingCart(items: any[]): string {
+  let totalPrice = 0;
+  let totalItems = 0;
+  for (let i = 0; i < items.length; i++) {
+    totalPrice += items[i].price;
+    totalItems++;
+  }
+  return `Total price of items in cart: ${totalPrice}. Total number of items in cart: ${totalItems}.`;
+}
+
+console.log(
+  shoppingCart([
+    { name: "apple", price: 0.5 },
+    { name: "banana", price: 0.75 },
+  ])
+);
+
+console.log(
+  shoppingCart([
+    { name: "apple", price: 0.5 },
+    { name: "banana", price: 0.75 },
+    { name: "orange", price: 0.25 },
+    { name: "grape", price: 0.5 },
+    { name: "kiwi", price: 0.75 },
+  ])
+);

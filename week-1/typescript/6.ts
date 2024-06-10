@@ -4,3 +4,9 @@
  * @param {number} fahrenheit The temperature in Fahrenheit.
  * @return {number} The temperature in Celsius.
  */
+
+function fahrenheitToCelsius(fahrenheit: number): number {
+  return ((fahrenheit - 32) * 5) / 9;
+}
+
+console.log(fahrenheitToCelsius(140));

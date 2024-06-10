@@ -22,3 +22,13 @@ const students = [
   { name: "Tom", mark: 65 },
   { name: "Nancy", mark: 75 },
 ];
+
+function getAverageMarks(students: any[]): number {
+  let sum = 0;
+  for (let i = 0; i < students.length; i++) {
+    sum += students[i].mark;
+  }
+  return sum / students.length;
+}
+
+console.log(getAverageMarks(students));
