@@ -52,4 +52,15 @@ export class ProductController {
   getProductsByCategory(@Param('category') category: string) {
     return this.productService.getProductsByCategory(category);
   }
+
+  @Patch(':id/quantity')
+  updateProductQuantity(
+    @Param('id') id: string,
+    @Body() updateProductDto: UpdateProductDto,
+  ) {
+    return this.productService.updateProductQuantity(
+      +id,
+      updateProductDto.Quantity,
+    );
+  }
 }
