@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { CreateUserDto } from './dto/create-user.dto';
-import { PrismaClient } from '@prisma/client';
+import { Task, PrismaClient } from '@prisma/client';
 import { UpdateUserDto } from './dto/update-user.dto';
 
 @Injectable()
@@ -21,6 +21,21 @@ export class UsersService {
       return error.message;
     }
   }
+
+  async update(
+    id: number,
+    data: { taskdesc: string; completed: boolean },
+  ): Promise<Task> {
+    return this.prisma.task.update({
+      where: {
+        id,
+      },
+      data: {
+        taskDesc: data.taskdesc,
+        iscomplete: data.completed, // Update the completed property
+      },
+    });
+  }
   async findAll() {
     const users = await this.prisma.task.findMany();
     return users;
@@ -31,26 +46,6 @@ export class UsersService {
       where: {
         id,
       },
-    });
-    return user;
-  }
-
-  async update(id: number, updateUserDto: UpdateUserDto) {
-    const user = await this.prisma.task.update({
-      where: {
-        id,
-      },
-      data: updateUserDto,
-    });
-    return user;
-  }
-
-  async updateOne(id: number, updateUserDto: UpdateUserDto) {
-    const user = await this.prisma.task.update({
-      where: {
-        id,
-      },
-      data: updateUserDto,
     });
     return user;
   }
